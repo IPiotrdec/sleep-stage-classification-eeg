@@ -48,13 +48,13 @@ The k-NN classifier achieved:
 Example model evaluation:
 
 ### Class distribution
-![Class Distribution](results/class_distribution.png)
+![Class Distribution](results/Class_distribution.png)
 
 ### Normalized confusion matrix
-![Confusion Matrix](results/confusion_norm.png)
+![Confusion Matrix](results/Confusion_norm.png)
 
 ### Precision / Recall / F1-score
-![Metrics](results/metrics.png)
+![Metrics](results/Metrics.png)
  
 The model performed best on deep sleep (N3) and showed lower performance on transitional stages such as N1 and REM, which is consistent with the complexity of sleep stage boundaries.
 
