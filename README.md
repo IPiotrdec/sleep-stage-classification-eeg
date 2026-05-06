@@ -66,5 +66,5 @@ Dataset files are not included in this repository.
 Download Sleep-EDF Expanded from PhysioNet and place them inside the `data/` directory.
 
 ## Author
-
+ 
 Piotr Idec
