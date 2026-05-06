@@ -40,6 +40,11 @@ The model classifies 5 sleep stages:
 
 ## Results
 
+The k-NN classifier achieved:
+
+- Accuracy: 72%
+- Balanced Accuracy: 64.65%
+
 Example model evaluation:
 
 ### Class distribution
@@ -50,6 +55,8 @@ Example model evaluation:
 
 ### Precision / Recall / F1-score
 ![Metrics](results/metrics.png)
+
+The model performed best on deep sleep (N3) and showed lower performance on transitional stages such as N1 and REM, which is consistent with the complexity of sleep stage boundaries.
 
 ## Dataset
 
