@@ -7,7 +7,7 @@ import random
 random.seed(42)     # seed dla powtarzalności
 np.random.seed(42)
 
-DATA_DIR = "data"
+DATA_DIR = r"data" # katalog z plikami .edf
 
 STAGE_MAP = {
     "Sleep stage W": 0,
@@ -199,13 +199,13 @@ cm = confusion_matrix(y_test, y_pred, labels=[0,1,2,3,4])
 # macierz pomyłek
 plt.figure()
 plt.imshow(cm, interpolation="nearest")
-plt.title("Macierz pomyłek (ilość)")
+plt.title("Confusion Matrix (Counts)")
 plt.colorbar()
 ticks = np.arange(len(class_names))
 plt.xticks(ticks, class_names, rotation=45, ha="right")
 plt.yticks(ticks, class_names)
-plt.xlabel("Przewidziana klasa")
-plt.ylabel("Prawdziwa klasa")
+plt.xlabel("Predicted class")
+plt.ylabel("True class")
 
 # liczby w komórkach
 for i in range(cm.shape[0]):
@@ -220,12 +220,12 @@ cm_norm = cm.astype(float) / (cm.sum(axis=1, keepdims=True) + 1e-12)
 
 plt.figure()
 plt.imshow(cm_norm, interpolation="nearest", vmin=0, vmax=1)
-plt.title("macierz pomyłek (Normalizacja)")
+plt.title("Confusion Matrix (Normalized)")
 plt.colorbar()
 plt.xticks(ticks, class_names, rotation=45, ha="right")
 plt.yticks(ticks, class_names)
-plt.xlabel("Przewidziana klasa")
-plt.ylabel("Prawdziwa klasa")
+plt.xlabel("Predicted class")
+plt.ylabel("True class")
 
 for i in range(cm_norm.shape[0]):
     for j in range(cm_norm.shape[1]):
@@ -243,12 +243,12 @@ x = np.arange(len(class_names))
 w = 0.25
 
 plt.figure()
-plt.bar(x - w, prec, width=w, label="Precyzja")
-plt.bar(x,      rec,  width=w, label="Czułość")
-plt.bar(x + w,  f1,   width=w, label="Wynik F1")
+plt.bar(x - w, prec, width=w, label="Precision")
+plt.bar(x,      rec,  width=w, label="Recall")
+plt.bar(x + w,  f1,   width=w, label="F1-Score")
 plt.xticks(x, class_names, rotation=45, ha="right")
 plt.ylim(0, 1)
-plt.title("Jakość klasyfikacji na klasę")
+plt.title("Quality of Classification by Class")
 plt.legend()
 plt.tight_layout()
 plt.savefig("metrics.png", dpi=200)
@@ -256,8 +256,8 @@ plt.savefig("metrics.png", dpi=200)
 # liczba epok na klasę
 plt.figure()
 plt.bar(class_names, sup)
-plt.title("Liczba epok na klasę (zbiór testowy)")
-plt.ylabel("Liczba epok")
+plt.title("Number of epochs per class (test set)")
+plt.ylabel("Number of epochs")
 plt.xticks(rotation=45, ha="right")
 plt.tight_layout()
 plt.savefig("support_test.png", dpi=200)
